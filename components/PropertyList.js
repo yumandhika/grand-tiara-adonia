@@ -1,4 +1,7 @@
 // components/PropertyList.js
+import { buildings } from '@/constants/buildings';
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const properties = [
@@ -29,21 +32,27 @@ const PropertyList = () => {
   return (
     <section className="py-12 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8">Available Properties</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
-            <div key={property.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                src={property.image}
-                alt={property.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
-                <p className="text-gray-600 mb-4">{property.description}</p>
-                <p className="text-lg font-bold text-gray-900">{property.price}</p>
+        <h2 className="text-5xl font-bold text-center mb-8 border-b pb-4">Type Property</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {buildings.map((property, index) => (
+            <Link href={`/properties/detail/${property.index}`}  key={property.index}>
+              <div className="flex flex-col bg-white rounded-lg shadow-lg h-[500px] relative">
+                <div className='w-full h-[100%] relative'>
+                  <Image 
+                    src={property.thumbnail}
+                    alt={property.label} 
+                    layout='fill'
+                    objectFit='cover'
+                    />
+                </div>
+                <div className="absolute bottom-0 w-full">
+                  <div className="bg-black opacity-50 w-full h-full absolute"></div>
+                  <h3 className="relative text-white p-4 text-4xl text-center font-semibold mb-2">
+                    {property.label}
+                  </h3>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

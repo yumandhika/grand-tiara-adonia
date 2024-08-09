@@ -1,7 +1,9 @@
+import AboutSection from "@/components/About";
 import BannerSlider from "@/components/BannerSlider";
 import BuildingSpecification from "@/components/BuildingSpecifikaction";
 import FooterContact from "@/components/FooterContact";
 import Navbar from "@/components/Navbar";
+import PropertyList from "@/components/PropertyList";
 import VideoPlayer from "@/components/VideoPlayer";
 
 export default function Home() {
@@ -10,7 +12,9 @@ export default function Home() {
       <Navbar />
       <BannerSlider />
       <main>
-        <BuildingSpecification/>
+        <AboutSection/>
+        <PropertyList/>
+        {/* <BuildingSpecification/> */}
       </main>
       <FooterContact />
     </div>

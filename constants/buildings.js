@@ -75,7 +75,7 @@ export const buildings = [
   {
     type: '75/72',
     label: 'Type 75/72',
-    thumbnail: 'https://drive.google.com/uc?export=view&id=16rFeaddyz--8m9zesHPDR9dQ5tYfThn-',
+    thumbnail: 'https://drive.google.com/uc?export=view&id=1m4R1aFd-M-nqDkgiMZznqcpK8lckFlPB',
     images: [
       {
         label: 'Lantai 1',
