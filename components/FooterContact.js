@@ -1,4 +1,5 @@
 'use client'
+import { Contact } from '@/constants/contact';
 import React, { useState } from 'react';
 
 const FooterContact = () => {
@@ -6,7 +7,7 @@ const FooterContact = () => {
   const [message, setMessage] = useState('');
 
   const sendMessageToWhatsApp = () => {
-    const phoneNumber = '+6282317070635'; // Ganti dengan nomor WhatsApp Anda
+    const phoneNumber = Contact.phone; // Ganti dengan nomor WhatsApp Anda
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       `Name: ${name}\nMessage: ${message}`
     )}`;
@@ -14,22 +15,19 @@ const FooterContact = () => {
   };
 
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-darkGreen text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-            <p className="text-gray-400 mb-4">
-              Have any questions? We’d love to hear from you. Contact us using
-              the form below or via WhatsApp.
-            </p>
+            <p className="text-gray-400 mb-4">Punya pertanyaan? Kami senang mendengarnya! Hubungi kami melalui formulir di bawah ini atau lewat WhatsApp.</p>
             <div>
               <div className="mb-4">
                 <label className="block text-gray-400 mb-2" htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white"
+                  className="w-full p-2 border border-gray-600 rounded text-white"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -38,7 +36,7 @@ const FooterContact = () => {
                 <label className="block text-gray-400 mb-2" htmlFor="message">Message</label>
                 <textarea
                   id="message"
-                  className="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white h-32"
+                  className="w-full p-2 border border-gray-600 rounded text-white h-32"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
@@ -52,25 +50,25 @@ const FooterContact = () => {
             </div>
           </div>
           <div className="md:w-1/2 md:pl-8">
-            <h2 className="text-4xl font-bold mb-4">Grand Tiara Adonia.</h2>
+            <h2 className="text-4xl font-bold mb-4">{Contact.name}.</h2>
             <div className="">
             <a
-              href="https://maps.app.goo.gl/imsXwzjbJmBpo2N67?g_st=ic"
+              href={Contact.link_gmap}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full h-auto"
             >
               <img
-                src="/images/map.jpeg"
+                src={Contact.image_map}
                 alt="Our Office Location"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
               </a>
             </div>
             <p className="text-gray-400 mb-4 pt-4 ">
-              Jalan Cibolerang Jalan Cinunuk No.35, Cinunuk, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40624<br/>
-              Phone: (123) 456-7890<br />
-              Email: contact@realestate.com
+              {Contact.address}<br/>
+              Phone: {Contact.phone}<br />
+              Email: {Contact.email}
             </p>
             <h3 className="text-2xl font-bold mb-2">Follow Us</h3>
             <div className="flex space-x-4">
